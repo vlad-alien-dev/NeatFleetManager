@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CarViewModel>
+
+@{
+    ViewBag.Title = "Car fleet inventory";
+}
+<div class="row inventory-top-panels">
+    <div class="col-md-4">
+        @Html.Action("NewCarsProportion")
+    </div>
+    <div class="col-md-4">
+        @Html.Action("ColorsProportion")
+    </div>
+    <div class="col-md-4">
+        @Html.Action("AveragePrice")
+    </div>
+
+</div>
+
+@Html.Partial("_Create", new CarViewModel())
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Condition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Condition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CarId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CarId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CarId })
+            </td>
+        </tr>
+    }
+
+</table>
+@section Styles {
+    <link href="@Url.Content("~/Content/Styles/Inventory.css")" rel="stylesheet" type="text/css" />
+}

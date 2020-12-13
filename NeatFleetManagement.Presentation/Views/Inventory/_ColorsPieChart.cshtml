@@ -1,0 +1,17 @@
+﻿@model Dictionary<string, double>
+
+
+<div class="piechart" style="background-image: conic-gradient(@(Model.ElementAt(0).Key + " " +Model.ElementAt(0).Value/100*360+ "deg, "+Model.ElementAt(1).Key+" 0 "+((Model.ElementAt(0).Value/100*360)+(Model.ElementAt(1).Value/100*360))+"deg, "+Model.ElementAt(2).Key+" 0")"></div>
+
+<div>
+
+    @foreach (var item in Model)
+    {
+        <p>
+            @Html.DisplayFor(modelItem => item.Key)
+            @Convert.ToString(String.Format("{0:0.00}%", item.Value))
+        </p>
+    }
+</div>
+
+<br />
