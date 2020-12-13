@@ -1,0 +1,54 @@
+﻿.inventory-top-panels div {
+    padding-top: 15px;
+    height: 180px;
+    text-align:center;
+}
+
+    .inventory-top-panels div:after {
+        background-color: lightgrey;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        z-index: -1;
+    }
+    .inventory-top-panels h1 {
+        font-size:55px;
+    }
+.inventory-top-panels div div {
+        float: left;
+        height: 100%;
+    }
+.piechart {
+    width: 45%;
+    height: 90% !important;
+    margin: 0 30px;
+    border-radius: 50%;
+    
+}
+
+.piechart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inventory-add-new-item-panel .btn {
+    width: 100% !important;
+}
+
+
+.inventory-add-new-item-panel .col-md-12 {
+    margin: 0;
+    padding: 0
+}
+
+.inventory-add-new-item-panel .form-group {
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+}

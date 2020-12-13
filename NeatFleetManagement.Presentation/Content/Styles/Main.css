@@ -1,0 +1,27 @@
+﻿.navbar-inverse{
+    background-color:orangered;
+}
+    .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+        color: #fff;
+    }
+
+.body-content {
+    margin-top: 30px;
+}
+table {
+    background: peachpuff;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    border-top-color: darkgray;
+}
+th, td {
+    border: 1px solid darkgray;
+}
+.btn {
+    background-color: orangered;
+}
+.btn-default{
+    color: #fff;
+}
+
+
