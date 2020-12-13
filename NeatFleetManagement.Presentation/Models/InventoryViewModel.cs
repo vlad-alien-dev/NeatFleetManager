@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace NeatFleetManager.Web
+namespace NeatFleetManagement.Web
 {
     public class InventoryViewModel
     {

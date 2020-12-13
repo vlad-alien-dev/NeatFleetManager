@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using NeatFleetManager.Service;
+using NeatFleetManagement.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace NeatFleetManager.Web.Controllers
+namespace NeatFleetManagement.Web.Controllers
 {
     public class InventoryController : Controller
     {

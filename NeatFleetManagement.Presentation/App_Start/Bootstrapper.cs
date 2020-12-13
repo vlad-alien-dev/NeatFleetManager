@@ -1,9 +1,9 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using AutoMapper;
-using NeatFleetManager.Data;
-using NeatFleetManager.Service;
-using NeatFleetManager.Web.Infrastructure;
+using NeatFleetManagement.Data;
+using NeatFleetManagement.Service;
+using NeatFleetManagement.Web.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
-namespace NeatFleetManager.Web.App_Start
+namespace NeatFleetManagement.Web.App_Start
 {
     public class Bootstrapper
     {
