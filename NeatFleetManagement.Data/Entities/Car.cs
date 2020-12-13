@@ -1,18 +1,18 @@
 ﻿using NeatFleetManagement.Utils;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace NeatFleetManagement.Web
+namespace NeatFleetManagement.Data
 {
-    public class CarViewModel
+    public class Car
     {
         public int CarId { get; set; }
         public CarColor Color { get; set; }
         public CarCondition Condition { get; set; }
-        [Range(100, 2000000)]
         public decimal Price { get; set; }
+        public int OwnerId { get; set; }
     }
 }
