@@ -62,14 +62,7 @@ namespace NeatFleetManagement.Service
         }
         public Dictionary<string, double> ColorsProportion()
         {
-            if (this.cars.Count() <= 0)
-            {
-                return new Dictionary<string, double>() {
-                    { "Red", 0 },
-                    { "Yellow", 0 },
-                    { "Green", 0 },
-                };
-            }
+            var defaultColors = new List<string>(){"Red", "Yellow", "Green"};
             var colorPercentage = this.cars.GroupBy(c => c.Color)
                         .Select(group => new
                         {
@@ -77,7 +70,13 @@ namespace NeatFleetManagement.Service
                             Percentage = Convert.ToDouble(group.Count()) / Convert.ToDouble(this.cars.Count()) * 100
                         }).
                         ToDictionary(item => item.ColorName, item => item.Percentage);
-
+            foreach (var color in defaultColors)
+            {
+                if (!colorPercentage.ContainsKey(color))
+                {
+                    colorPercentage.Add(color, 0);
+                }
+            }
             return colorPercentage;
         }
 

@@ -1,11 +1,10 @@
 ﻿@model Dictionary<string, double>
 
-@if (Model.Count > 2)
-{
+
 <div class="piechart" style="background-image: conic-gradient(
     @(Model.ElementAt(0).Key + " " +Model.ElementAt(0).Value/100*360+ "deg, "+Model.ElementAt(1).Key+" 0 "+((Model.ElementAt(0).Value/100*360)+(Model.ElementAt(1).Value/100*360))+"deg, "+Model.ElementAt(2).Key+" 0")">
 </div>
-}
+
 
 
 <div>
