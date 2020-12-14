@@ -13,6 +13,6 @@ namespace NeatFleetManagement.Service
         public CarColor Color { get; set; }
         public CarCondition Condition { get; set; } 
         public decimal Price { get; set; }
-        public int OwnerId { get; set; }
+        public string OwnerId { get; set; }
     }
 }

@@ -14,6 +14,7 @@ namespace NeatFleetManagement.Presentation
 		{
 			this.CreateMap<CarServiceModel, CarViewModel>();
 			this.CreateMap<CarViewModel, CarServiceModel>();
+			this.CreateMap<CarFormViewModel, CarServiceModel>();
 		}
 	}
 }

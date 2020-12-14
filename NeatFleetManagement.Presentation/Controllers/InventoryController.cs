@@ -23,27 +23,19 @@ namespace NeatFleetManagement.Web.Controllers
         // GET: Inventory
         public ActionResult Index()
         {
-            var user = User.Identity.GetUserId();
+            var userId = User.Identity.GetUserId();
 
-            IEnumerable<CarServiceModel> servModels = this.carService.GetCarsByUserId(user);
+            IEnumerable<CarServiceModel> servModels = this.carService.GetCarsByUserId(userId);
             var viewModels = this.mapper.Map<List<CarViewModel>>(servModels);
 
             return View(viewModels);
         }
         public ActionResult ReadyToGoDemo()
         {
-            var user = User.Identity.GetUserId();
-
             IEnumerable<CarServiceModel> servModels = this.carService.GetAllCars();
             var viewModels = this.mapper.Map<List<CarViewModel>>(servModels);
 
             return View("Index",viewModels);
-        }
-
-        // GET: Inventory/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
         }
 
         // GET: Inventory/Create
@@ -59,58 +51,17 @@ namespace NeatFleetManagement.Web.Controllers
         {
             try
             {
+                var userId = User.Identity.GetUserId();
+
                 var serviceModel = this.mapper.Map<CarServiceModel>(car);
+                serviceModel.OwnerId = userId;
                 this.carService.CreateCar(serviceModel);
                 this.carService.Save();
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
-                return View("Index");
-            }
-        }
-
-        // GET: Inventory/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Inventory/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Inventory/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Inventory/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
+                return View("~/Views/Shared/Error.cshtml", new HandleErrorInfo(ex, "Inventory", "Create"));
             }
         }
 
