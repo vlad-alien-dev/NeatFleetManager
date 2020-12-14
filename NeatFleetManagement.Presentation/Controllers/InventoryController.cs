@@ -21,6 +21,7 @@ namespace NeatFleetManagement.Web.Controllers
             this.mapper = mapper;
         }
         // GET: Inventory
+        [Authorize]
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
