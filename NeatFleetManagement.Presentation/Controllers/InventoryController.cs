@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNet.Identity;
+using NeatFleetManagement.Presentation.Models;
 using NeatFleetManagement.Service;
 using System;
 using System.Collections.Generic;
@@ -21,10 +23,21 @@ namespace NeatFleetManagement.Web.Controllers
         // GET: Inventory
         public ActionResult Index()
         {
-            IEnumerable<CarServiceModel> servModels = this.carService.GetAllCars();
+            var user = User.Identity.GetUserId();
+
+            IEnumerable<CarServiceModel> servModels = this.carService.GetCarsByUserId(user);
             var viewModels = this.mapper.Map<List<CarViewModel>>(servModels);
 
             return View(viewModels);
+        }
+        public ActionResult ReadyToGoDemo()
+        {
+            var user = User.Identity.GetUserId();
+
+            IEnumerable<CarServiceModel> servModels = this.carService.GetAllCars();
+            var viewModels = this.mapper.Map<List<CarViewModel>>(servModels);
+
+            return View("Index",viewModels);
         }
 
         // GET: Inventory/Details/5
@@ -42,7 +55,7 @@ namespace NeatFleetManagement.Web.Controllers
 
         // POST: Inventory/Create
         [HttpPost]
-        public ActionResult Create(CarViewModel car)
+        public ActionResult Create(CarFormViewModel car)
         {
             try
             {

@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
-using NeatFleetManager.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using NeatFleetManagement.Presentation;
+using NeatFleetManagement.Service;
 
-namespace NeatFleetManager.Web.Infrastructure
+namespace NeatFleetManagement.Web.Infrastructure
 {
     public class AutoMapperConfiguration
     {

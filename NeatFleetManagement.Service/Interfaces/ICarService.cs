@@ -9,6 +9,7 @@ namespace NeatFleetManagement.Service
     public interface ICarService
     {
         IEnumerable<CarServiceModel> GetAllCars();
+        IEnumerable<CarServiceModel> GetCarsByUserId(string userId);
         CarServiceModel GetCar(int id);
         void CreateCar(CarServiceModel car);
         decimal AveragePrice();

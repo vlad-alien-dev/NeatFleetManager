@@ -1,9 +1,10 @@
-﻿using System;
+﻿using NeatFleetManagement.Presentation.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace NeatFleetManagement.Web
+namespace NeatFleetManagement.Presentation.Models
 {
     public class InventoryViewModel
     {

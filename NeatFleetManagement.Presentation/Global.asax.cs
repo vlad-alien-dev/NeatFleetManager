@@ -1,3 +1,5 @@
+using NeatFleetManagement.Data;
+using NeatFleetManagement.Web.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +14,15 @@ namespace NeatFleetManagement.Presentation
     {
         protected void Application_Start()
         {
+            System.Data.Entity.Database.SetInitializer(new DbDataSeeder());
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Bootstrapper.Run();
+
         }
     }
 }

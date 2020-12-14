@@ -21,7 +21,7 @@ namespace NeatFleetManagement.Presentation.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("CarFleetManagement", throwIfV1Schema: false)
         {
         }
 

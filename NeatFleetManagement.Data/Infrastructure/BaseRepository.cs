@@ -65,7 +65,6 @@ namespace NeatFleetManagement.Data
         {
             return dbSet.ToList();
         }
-
         public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where)
         {
             return dbSet.Where(where).ToList();

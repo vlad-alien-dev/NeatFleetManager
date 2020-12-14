@@ -41,20 +41,40 @@ namespace NeatFleetManagement.Service
 
             return this.cars;
         }
+        public IEnumerable<CarServiceModel> GetCarsByUserId(string userId)
+        {
+            IEnumerable<Car> cars = this.carRepository.GetMany(c => c.OwnerId == userId);
+            this.cars = this.mapper.Map<List<CarServiceModel>>(cars);
 
+            return this.cars;
+        }
 
         public decimal AveragePrice()
         {
-            var ave = this.cars.ToList().Average(x => x.Price);
+            if (this.cars.Count() <= 0)
+            {
+                return 0;
+            }
+            var ave = this.cars.Average(x => x.Price);
+
             return ave;
 
         }
-        public Dictionary<string, double> ColorsProportion ()
+        public Dictionary<string, double> ColorsProportion()
         {
+            if (this.cars.Count() <= 0)
+            {
+                return new Dictionary<string, double>() {
+                    { "Red", 0 },
+                    { "Yellow", 0 },
+                    { "Green", 0 },
+                };
+            }
             var colorPercentage = this.cars.GroupBy(c => c.Color)
-                        .Select(group => new {
+                        .Select(group => new
+                        {
                             ColorName = group.Key.ToString(),
-                            Percentage = Convert.ToDouble (group.Count()) / Convert.ToDouble (this.cars.Count())*100 
+                            Percentage = Convert.ToDouble(group.Count()) / Convert.ToDouble(this.cars.Count()) * 100
                         }).
                         ToDictionary(item => item.ColorName, item => item.Percentage);
 
@@ -63,9 +83,13 @@ namespace NeatFleetManagement.Service
 
         public double NewCarsProportion()
         {
-            var newCarsProportion = Convert.ToDouble( this.cars.Count(c => c.Condition == CarCondition.New))
-                                   /Convert.ToDouble(this.cars.Count())
-                                   *100;
+            if (this.cars.Count() <= 0)
+            {
+                return 0;
+            }
+            var newCarsProportion = Convert.ToDouble(this.cars.Count(c => c.Condition == CarCondition.New))
+                                   / Convert.ToDouble(this.cars.Count())
+                                   * 100;
             return newCarsProportion;
         }
         public void Save()

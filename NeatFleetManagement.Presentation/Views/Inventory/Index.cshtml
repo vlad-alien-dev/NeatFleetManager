@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CarViewModel>
+﻿@model IEnumerable<NeatFleetManagement.Presentation.Models.CarViewModel>
 
 @{
     ViewBag.Title = "Car fleet inventory";
@@ -16,8 +16,7 @@
 
 </div>
 
-@Html.Partial("_Create", new CarViewModel())
-
+@Html.Partial("_Create", new NeatFleetManagement.Presentation.Models.CarFormViewModel())
 <table class="table">
     <tr>
         <th>
