@@ -51,13 +51,14 @@ namespace NeatFleetManagement.Web.Controllers
         {
             try
             {
+                var callingActionName = (Request.UrlReferrer.Segments.Skip(2).Take(1).SingleOrDefault() ?? "ReadyToGoDemo").Trim('/');
                 var userId = User.Identity.GetUserId();
 
                 var serviceModel = this.mapper.Map<CarServiceModel>(car);
                 serviceModel.OwnerId = userId;
                 this.carService.CreateCar(serviceModel);
                 this.carService.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction(callingActionName);
             }
             catch(Exception ex)
             {
