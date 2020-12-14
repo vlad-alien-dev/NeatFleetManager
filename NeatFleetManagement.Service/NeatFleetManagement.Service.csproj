@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\NeatFleetManager.Web\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,9 +51,6 @@
     <Compile Include="Services\CarService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\NeatFleetManagement.Data\NeatFleetManagement.Data.csproj">
       <Project>{bf4e3e74-51b7-4d14-b36f-d510fd24c17e}</Project>
       <Name>NeatFleetManagement.Data</Name>
@@ -62,6 +59,9 @@
       <Project>{036ee30f-9f07-481f-bfab-8299afc70d32}</Project>
       <Name>NeatFleetManagement.Utils</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
